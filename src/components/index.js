@@ -53,9 +53,19 @@ function handleCardFormSubmit(evt) {
     evt.preventDefault();
     loadingAnswer(true, buttonSaveCard)
     addNewCard(placeNameInput.value, linkInput.value)
-        .then(() => {
+        .then((newCard) => {
             placesList.prepend(
-                createCard(placeNameInput.value, linkInput.value, placeNameInput.value, popupImage, imageInPopup, imageInPopupCaption, [])
+                createCard(
+                    placeNameInput.value,
+                    linkInput.value,
+                    placeNameInput.value,
+                    popupImage, imageInPopup,
+                    imageInPopupCaption,
+                    newCard.likes,
+                    newCard.owner._id,
+                    newCard.owner._id,
+                    newCard._id
+                )
             );
             closeModal(popupCardAdd, validationSettings);
             addDefaultCardValues();
