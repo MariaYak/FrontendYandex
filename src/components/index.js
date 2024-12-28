@@ -172,7 +172,6 @@ getUserInfo()
 
 getInitialCards()
     .then((result) => {
-        console.log(result);
         getUserInfo()
             .then((user) => {
                 result.forEach(card => {
